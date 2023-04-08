@@ -36,7 +36,7 @@ bone = "556e0100"
 
 def get_chat_code(amount=250, kp=li):
     li_hexed = "02" + amount_to_hex(amount) + kp
-    return base64.b64encode(bytes.fromhex(li_hexed)).decode()
+    return "[&" + base64.b64encode(bytes.fromhex(li_hexed)).decode() + "]"
 
 
 def amount_to_hex(amount):
@@ -47,4 +47,4 @@ def amount_to_hex(amount):
 
 
 if __name__ == '__main__':
-    print("[&" + get_chat_code() + "]")
+    get_chat_code()
