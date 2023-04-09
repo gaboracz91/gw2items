@@ -1,32 +1,31 @@
 import base64
 
-
-#defining various killing proof
+# defining various killing proof
 fractal = "4f3f0100"
-#w1
+# w1
 vale = "892f0100"
 gorseval = "b72f0100"
 sabetha = "a02f0100"
-#w2
+# w2
 sloth = "8a2f0100"
 matthias = "6f2f0100"
-#w3
+# w3
 kc = "36340100"
 xera = "5e340100"
-#w4
+# w4
 carin = "ef3a0100"
 Murssat = "8d390100"
 samarog = "d7380100"
 demios = "9e3a0100"
-#w5
+# w5
 desmina = "e94f0100"
 statue = "284f0100"
 dhuum = "814e0100"
-#w6
+# w6
 ca = "df590100"
 twin = "1c5b0100"
 qadim = "455a0100"
-#w7
+# w7
 sabir = "86640100"
 adina = "6e640100"
 qadim2 = "27640100"
@@ -34,9 +33,16 @@ qadim2 = "27640100"
 li = "f62d0100"
 bone = "556e0100"
 
+
 def get_chat_code(amount=250, kp=li):
     li_hexed = "02" + amount_to_hex(amount) + kp
     return "[&" + base64.b64encode(bytes.fromhex(li_hexed)).decode() + "]"
+
+
+def get_item_from_chat_code(chat_code):
+    chat_code = "[&AiGJLwEA]"
+    cleaned_chat_code = chat_code.lstrip("[&").rstrip("]")
+    return base64.b64decode(cleaned_chat_code).hex()[-8:]
 
 
 def amount_to_hex(amount):
@@ -47,4 +53,4 @@ def amount_to_hex(amount):
 
 
 if __name__ == '__main__':
-    get_chat_code()
+    print(get_chat_code())
